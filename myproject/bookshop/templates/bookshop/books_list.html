@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Books lisst</title>
+    <style>
+        body {
+         
+            background-color: #eef2f3;
+            padding: 30px;
+        }
+        table {
+            width: 80%;
+            margin: auto;
+            border-collapse: collapse;
+            background: white;
+        }
+        th, td {
+            padding: 12px;
+            border-bottom: 1px solid #ccc;
+            text-align: left;
+        }
+        th {
+            background-color: #0077cc;
+           
+        }
+ 
+    </style>
+</head>
+<body>
+    <h1 style="text-align:center;">Books List</h1>
+    <table>
+        <tr>
+            <th>#</th>
+            <th>Title</th>
+            
+        </tr>
+        {% for b in book %}
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ b.title }}</td>
+            <td><a href="{% url 'book_detail' b.id %}">View</a></td>
+            
+          
+           
+        </tr>
+        {% empty %}
+       
+        {% endfor %}
+    </table>
+</body>
+</html>
